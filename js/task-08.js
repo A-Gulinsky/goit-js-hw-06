@@ -1,29 +1,18 @@
-
 const form = document.querySelector(`.login-form`)
-const inputs = document.querySelectorAll(`.login-form input`)
 
-form.addEventListener(`submit`, onFormSubmit)
+form.addEventListener(`submit`, handleFormSubmit)
 
-function onFormSubmit(event) {
-  event.preventDefault()
-   
-  const inputElements = event.currentTarget.elements
-  // email/password
-  const email = inputElements.email.value
-  const password = inputElements.password.value
-   
-   const result = {
-  [inputs[0].type] : email,
-  [inputs[1].type] : password
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const formElements = event.currentTarget.elements;
+  const email = formElements.email.value;
+  const password = formElements.password.value;
+ 
+  if (!email || !password) {
+    alert('All inputs must not be empty');
+  } else {
+     const formOutput = { email, password };
+    console.log(formOutput);
+    form.reset();
   }
-  console.log(result)
-
-  // valid / reset
-  inputs.forEach(input => {
-    if(input.value.trim() !== '') {
-      form.reset()
-    } else {
-        alert(`All fields need to full`)
-      }
-  })
-}
+} 

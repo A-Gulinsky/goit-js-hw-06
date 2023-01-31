@@ -15,7 +15,7 @@ const images = [
 
 const galleryEl = document.querySelector(`.gallery`)
 
-const makeGallery = item => `<li><img src="${item.url} alt="${item.alt}"></li>`
+const makeGallery = item => `<li><img src="${item.url}" alt="${item.alt}"></li>`
 
 const makeItemWithPhotoOnGalleryList = images.map(makeGallery).join('')
 

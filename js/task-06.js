@@ -6,11 +6,13 @@ const makeBorderColor = (event) => {
    const inputDataSetLength = event.dataset.length
 
 
-  if(inputValueLength != inputDataSetLength) {
-    input.classList.add(`invalid`)
+   if (inputValueLength == inputDataSetLength) {
+    input.classList.add("valid");
+    input.classList.remove("invalid");
   } else {
-    input.classList.replace(`invalid`, `valid`)
-    }
+    input.classList.add("invalid");
+    input.classList.remove("valid");
+  }
   })
 }
 
